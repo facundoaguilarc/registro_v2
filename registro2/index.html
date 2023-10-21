@@ -14,46 +14,39 @@
 
   <div class="container">
     <main>
-      <form action="#" method="get" class="row mt-4">
+      <form id="form-valudacion" action="#" method="get" class="row mt-4">
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control is-valid" id="nombre" required>
-              <div class="invalid-feedback">
-                ¡Se ve bien!
-              </div>
+              <input type="text" class="form-control is-invalid" id="nombre" required>
+              <div id="feedback-nombre" class="invalid-feedback">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="apellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control is-valid" id="apellido" required>
-              <div class="invalid-feedback">
-                ¡Se ve bien!
-              </div>
+              <input type="text" class="form-control is-invalid" id="apellido" required>
+              <div class="invalid-feedback">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control is-valid" id="email" required>
-              <div class="invalid-feedback">
-                ¡Se ve bien!
-              </div>
+              <input type="email" class="form-control is-invalid" id="email" required>
+              <div id="feedback-email" class="invalid-feedback">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="password1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control is-valid" id="password1" required>
-              <div class="invalid-feedback">
-                ¡Se ve bien!
-              </div>
+              <input type="password" class="form-control is-invalid" id="password1" required>
+              <div class="invalid-feedback">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
-              <input type="password" class="form-control is-valid" id="password2" required>
+              <input type="password" class="form-control is-invalid" id="password2" required>
+              <div class="invalid-feedback"></div>
             </div>
 
             <div class="col-sm-12 in">
