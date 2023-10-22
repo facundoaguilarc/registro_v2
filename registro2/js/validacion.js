@@ -52,3 +52,40 @@ email.addEventListener("change", function() {
         }
     }
 })
+
+//Validacion de contraseñas
+
+
+const pass1 = document.getElementById('password1');
+const pass2 = document.getElementById('password2');
+const feedback1 = document.getElementById('passFeedback1');
+const feedback2 = document.getElementById('passFeedback2');
+
+ pass2.addEventListener("change", ()=>{
+    if(pass2.value === pass1.value)
+    {
+feedback2.classList.add("valid-feedback");
+feedback2.classList.remove("invalid-feedback");
+pass2.classList.add('is-valid');
+pass2.classList.remove('is-invalid');
+feedback1.classList.add("valid-feedback");
+feedback1.classList.remove("invalid-feedback");
+pass1.classList.add('is-valid');
+pass1.classList.remove('is-invalid');
+feedback2.innerText = "Las contraseñas coinciden";
+console.log(feedback2.innerText);
+}
+else{
+    feedback1.classList.add("invalid-feedback");
+    feedback1.classList.remove("valid-feedback");
+    pass1.classList.add('is-invalid');
+    pass1.classList.remove('is-valid');
+    feedback2.classList.add("invalid-feedback");
+    feedback2.classList.remove("valid-feedback");
+    pass2.classList.add('is-invalid');
+    pass2.classList.remove('is-valid');
+    feedback2.innerText = "Las contraseñas no coinciden";
+}
+})
+
+// Agrega un event listener para comprobar las contraseñas cuando se escriben o cambian
