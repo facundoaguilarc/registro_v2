@@ -21,20 +21,20 @@
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control is-invalid" id="nombre" required>
-              <div id="feedback-nombre" class="invalid-feedback">Este campo es obligatorio.</div>
+              <input type="text" class="form-control" id="nombre" required>
+              <div id="feedback-nombre" class="">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="apellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control is-invalid" id="apellido" required>
-              <div class="invalid-feedback">Este campo es obligatorio.</div>
+              <input type="text" class="form-control" id="apellido" required>
+              <div class="">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control is-invalid" id="email" required>
-              <div id="feedback-email" class="invalid-feedback">Este campo es obligatorio.</div>
+              <input type="email" class="form-control" id="email" required>
+              <div id="feedback-email" class="">Este campo es obligatorio.</div>
             </div>
 
             <div class="col-sm-6">
@@ -50,11 +50,11 @@
             </div>
 
             <div class="col-sm-12 in">
-              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+              <button id="btnTerms" type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
                 data-bs-target="#modalTerminos">Términos del servicio</button>
-                <div id="invalidCheck3Feedback" class="">
-                  Debe estar de acuerdo antes de enviar.
-                </div>
+              <div id="buttonFeedback" class="">
+                Debe estar de acuerdo antes de enviar.
+              </div>
             </div>
 
 
@@ -89,7 +89,7 @@
         </div>
         <div class="modal-footer">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="terminos">
+            <input type="checkbox" class="form-check-input" id="terminos" required>
             <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
             <div id="Feedback1" class=""></div>
           </div>

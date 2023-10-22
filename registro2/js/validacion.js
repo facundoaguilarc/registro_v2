@@ -62,7 +62,7 @@ const feedback1 = document.getElementById('passFeedback1');
 const feedback2 = document.getElementById('passFeedback2');
 
 pass2.addEventListener("change", () => {
-    if (pass2.value === pass1.value && pass1.hasAttribute('required')) {
+    if ((pass2.value === pass1.value) && (pass1.checkValidity()&&pass2.checkValidity())) {
         feedback2.classList.add("valid-feedback");
         feedback2.classList.remove("invalid-feedback");
         pass2.classList.add('is-valid');
@@ -89,12 +89,19 @@ pass2.addEventListener("change", () => {
 
 //Validaciones Checkbox
 const checkBox = document.getElementById('terminos');
-checkBoxFeedback = document.getElementById('checkBoxFeedback')
+const checkBoxFeedback = document.getElementById('checkBoxFeedback')
+const buttonFeedback = document.getElementById('buttonFeedback');
+const buttonTerms = document.getElementById('btnTerms')
+
 checkBox.addEventListener('click', () => {
     if (checkBox.checked) {
         checkBox.classList.add("is-valid");
         checkBoxFeedback.classList.add("valid-feedback");
-        checkBoxFeedback.innerText = "Estas de acuerdo"
+        checkBoxFeedback.innerText = "Estas de acuerdo";
+        buttonFeedback.classList.add("valid-feedback");
+        buttonTerms.classList.add("is-valid");
+        buttonFeedback.innerText = "Estas de Acuerdo";
+        console.log(buttonFeedback.innerText)
     }
 })
 
