@@ -22,6 +22,25 @@ nombre.addEventListener("change", function() {
 
 // Termina validacion nombre jeje
 
+let apellido = document.getElementById('apellido');
+let fbApellido = document.getElementById('feedback-apellido');
+
+apellido.addEventListener("change", function(){
+    if (apellido.value != "") {
+        apellido.classList.remove("is-invalid");
+        apellido.classList.add("is-valid");
+        fbApellido.classList.remove("invalid-feedback");
+        fbApellido.classList.add("valid-feedback");
+        fbApellido.innerText = "Apellido válido";
+    } else {
+        apellido.classList.remove("is-valid");
+        apellido.classList.add("is-invalid");
+        fbApellido.classList.remove("valid-feedback");
+        fbApellido.classList.add("invalid-feedback");
+        fbApellido.innerText = "Este campo es obligatorio.";
+    }
+})
+
 // Valudacion mail
 
 let email = document.getElementById('email');
