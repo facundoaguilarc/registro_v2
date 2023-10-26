@@ -4,6 +4,11 @@ function validacion(){
    // Validación de nombre
    let nombre = document.getElementById('nombre');
    let fbNombre = document.getElementById('feedback-nombre');
+   let valNombre = false;
+   let valApellido = false;
+   let valeEmail = false;
+   let valPassword = false;
+   let valCheckbox = false;
  
    if (nombre.value != "") {
      nombre.classList.remove("is-invalid");
@@ -12,6 +17,7 @@ function validacion(){
      fbNombre.classList.add("valid-feedback");
      fbNombre.innerText = "Nombre válido";
      nombre.setCustomValidity(''); // Restablece el mensaje de validación personalizado
+     valNombre = true;
    } else {
      nombre.classList.remove("is-valid");
      nombre.classList.add("is-invalid");
@@ -19,7 +25,9 @@ function validacion(){
      fbNombre.classList.add("invalid-feedback");
      fbNombre.innerText = "Este campo es obligatorio.";
      nombre.setCustomValidity('Por favor, ingresa tu nombre.');
+     valNombre = false;
    }
+
  
    // Validación de apellido
    let apellido = document.getElementById('apellido');
@@ -32,6 +40,7 @@ function validacion(){
      fbApellido.classList.add("valid-feedback");
      fbApellido.innerText = "Apellido válido";
      apellido.setCustomValidity('');
+     valApellido = true;
    } else {
      apellido.classList.remove("is-valid");
      apellido.classList.add("is-invalid");
@@ -118,8 +127,14 @@ function validacion(){
      buttonFeedback.innerText = "Estás de Acuerdo";
    }
  }
+
+
+
 // Agrega un controlador de eventos al botón "btnSubmit"
-btnSubmit.addEventListener('click', () => {
+btnSubmit.addEventListener('click', validacion(){
+
+
+})
  
 
 //let formulario = document.getElementById('form-valudacion').checkValidity();
