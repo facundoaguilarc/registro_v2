@@ -1,5 +1,13 @@
 const btnSubmit = document.getElementById('btnSubmit');
 
+// Variables de validacion
+let vNombre = false;
+let vApellido = false;
+let vEmail = false;
+let vPass = false;
+let vTerminos = false;
+
+
 // Agrega un controlador de eventos al botón "btnSubmit"
 btnSubmit.addEventListener('click', () => {
   // Validación de nombre
@@ -13,6 +21,7 @@ btnSubmit.addEventListener('click', () => {
     fbNombre.classList.add("valid-feedback");
     fbNombre.innerText = "Nombre válido";
     nombre.setCustomValidity(''); // Restablece el mensaje de validación personalizado
+    vNombre = true;
   } else {
     nombre.classList.remove("is-valid");
     nombre.classList.add("is-invalid");
@@ -20,6 +29,7 @@ btnSubmit.addEventListener('click', () => {
     fbNombre.classList.add("invalid-feedback");
     fbNombre.innerText = "Este campo es obligatorio.";
     nombre.setCustomValidity('Por favor, ingresa tu nombre.');
+    vNombre = false;
   }
 
   // Validación de apellido
@@ -33,6 +43,7 @@ btnSubmit.addEventListener('click', () => {
     fbApellido.classList.add("valid-feedback");
     fbApellido.innerText = "Apellido válido";
     apellido.setCustomValidity('');
+    vApellido = true;
   } else {
     apellido.classList.remove("is-valid");
     apellido.classList.add("is-invalid");
@@ -40,6 +51,7 @@ btnSubmit.addEventListener('click', () => {
     fbApellido.classList.remove("valid-feedback");
     fbApellido.classList.add("invalid-feedback");
     fbApellido.innerText = "Este campo es obligatorio.";
+    vApellido = false;
   }
 
   // Validación de email
@@ -54,7 +66,9 @@ btnSubmit.addEventListener('click', () => {
     fbEmail.classList.add("valid-feedback");
     fbEmail.innerText = "Email válido";
     email.setCustomValidity('');
+    vEmail = true;
   } else {
+    vEmail = false;
     if (email.value != "" && !regex.test(email.value)) {
       email.classList.remove("is-valid");
       email.classList.add("is-invalid");
@@ -65,7 +79,7 @@ btnSubmit.addEventListener('click', () => {
     } else {
       email.classList.remove("is-valid");
       email.classList.add("is-invalid");
-    email.setCustomValidity('Ingresa un email');
+      email.setCustomValidity('Ingresa un email');
       fbNombre.classList.remove("valid-feedback");
       fbEmail.classList.add("invalid-feedback");
       fbEmail.innerText = "Este campo es obligatorio.";
@@ -78,7 +92,7 @@ btnSubmit.addEventListener('click', () => {
   const feedback1 = document.getElementById('passFeedback1');
   const feedback2 = document.getElementById('passFeedback2');
 
-  if ((pass2.value === pass1.value) && (pass1.checkValidity() && pass2.checkValidity())) {
+  if ( pass1.value !== "" && pass2.value !== "" && (pass2.value === pass1.value)) {
     feedback2.classList.add("valid-feedback");
     feedback2.classList.remove("invalid-feedback");
     pass2.classList.add('is-valid');
@@ -88,8 +102,9 @@ btnSubmit.addEventListener('click', () => {
     pass1.classList.add('is-valid');
     pass1.classList.remove('is-invalid');
     feedback2.innerText = "Las contraseñas coinciden";
-    pass1setCustomValidity('');
-    pass2setCustomValidity('');
+    pass1.setCustomValidity('');
+    pass2.setCustomValidity('');
+    vPass = true;
   } else {
     feedback1.classList.add("invalid-feedback");
     feedback1.classList.remove("valid-feedback");
@@ -102,6 +117,7 @@ btnSubmit.addEventListener('click', () => {
     pass1.setCustomValidity('Ingresa una contraseña valida e igual a la de confirmacion');
     pass2.setCustomValidity('Ingresa una contraseña valida e igual a la de confirmacion');
     feedback2.innerText = "Las contraseñas no coinciden";
+    vPass = false;
   }
 
   // Validación del checkbox
@@ -117,5 +133,14 @@ btnSubmit.addEventListener('click', () => {
     buttonFeedback.classList.add("valid-feedback");
     buttonTerms.classList.add("is-valid");
     buttonFeedback.innerText = "Estás de Acuerdo";
+    vTerminos = true;
+  } else {
+    vTerminos = false;
+    alert('Necesita estar de acuerdo con los terminos y condiciones de uso antes de seguir.')
   }
+
+  if (vApellido && vEmail && vNombre && vPass && vTerminos) {
+    console.log('todo va bien pa');
+  }
+
 });
