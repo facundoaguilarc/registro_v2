@@ -141,6 +141,16 @@ btnSubmit.addEventListener('click', () => {
 
   if (vApellido && vEmail && vNombre && vPass && vTerminos) {
     console.log('todo va bien pa');
+    let alerta = document.getElementById('alerta');
+
+    alerta.classList.add("alert", "alert-success");
+    alerta.innerText = 'El registro ha sido exitoso!';
+
+    setTimeout(function() {
+      alerta.classList.remove("alert", "alert-success");
+      alerta.innerText = '';
+    }, 1500)
   }
 
 });
+
